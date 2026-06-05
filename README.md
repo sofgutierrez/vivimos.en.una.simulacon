@@ -1,0 +1,264 @@
+[style.css](https://github.com/user-attachments/files/28622168/style.css)
+[script.js](https://github.com/user-attachments/files/28622170/script.js)[index.html](https://github.com/user-attachments/files/28622171/index.html)<!DOCTYPE html>
+<div id="quantum-white-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; background: transparent; user-select: none;">
+    
+    <div id="canvas-holder-white" style="position: relative; width: 260px; height: 260px;">
+        <svg id="quantum-white-svg" viewBox="0 0 200 200" style="width: 100%; height: 100%; overflow: visible;">
+            <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+            <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+            
+            <path id="white-string-1" d="M40,100 Q100,20 160,100" fill="none" stroke="#FFFFFF" stroke-width="1.5" style="transition: stroke-width 0.3s;" />
+            <path id="white-string-2" d="M40,100 Q100,180 160,100" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1" />
+            <path id="white-string-3" d="M100,40 Q180,100 100,160" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1" />
+            <path id="white-string-4" d="M100,40 Q20,100 100,160" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" />
+        </svg>
+    </div>
+
+    <div style="margin-top: 20px; text-align: center;">
+        <span style="display: block; letter-spacing: 10px; text-transform: uppercase; font-size: 13px; color: #FFFFFF; font-family: sans-serif; font-weight: 300; opacity: 0.9;">
+            Quantum Strings
+        </span>
+    </div>
+
+    <script>
+        (function() {
+            const svg = document.getElementById('quantum-white-svg');
+            const s1 = document.getElementById('white-string-1');
+            const s2 = document.getElementById('white-string-2');
+            const s3 = document.getElementById('white-string-3');
+            const s4 = document.getElementById('white-string-4');
+
+            // Interacción con el movimiento del ratón
+            svg.addEventListener('mousemove', (e) => {
+                const rect = svg.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const warpX = (x / rect.width) * 200;
+                const warpY = (y / rect.height) * 200;
+
+                s1.setAttribute('d', `M40,100 Q${warpX},${warpY - 50} 160,100`);
+                s2.setAttribute('d', `M40,100 Q${200 - warpX},${200 - warpY + 50} 160,100`);
+                
+                s1.style.strokeWidth = '2'; // Se ensancha levemente al interactuar
+            });
+
+            svg.addEventListener('mouseleave', () => {
+                s1.setAttribute('d', 'M40,100 Q100,20 160,100');
+                s2.setAttribute('d', 'M40,100 Q100,180 160,100');
+                s1.style.strokeWidth = '1.5';
+            });
+
+            // Vibración según el scroll
+            window.addEventListener('scroll', () => {
+                const scroll = window.scrollY;
+                const vib = Math.sin(scroll * 0.1) * 8;
+                
+                s3.setAttribute('d', `M100,40 Q${180 + vib},100 100,160`);
+                s4.setAttribute('d', `M100,40 Q${20 - vib},100 100,160`);
+                
+                // Rotación suave del logo
+                svg.style.transform = `rotate(${scroll * 0.03}deg)`;
+            });
+        })();
+    </script>
+</div>
+
+ </style>
+</head>
+<body>
+
+  <div class="logo-container">
+    <div class="inner-ring"></div>
+
+    <div class="atom">
+      <div class="orbit"></div>
+      <div class="orbit"></div>
+      <div class="orbit"></div>
+
+      <div class="core"></div>
+    </div>
+  </div>
+
+</body>
+</html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación Digital | Proyecto de Física</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="stars-container"></div> 
+
+    <main class="content">
+        <header>
+            <h1 class="glitch">¿Vivimos en una simulación?</h1>
+            <p class="subtitle">Análisis físico sobre la naturaleza de la realidad</p>
+        </header>
+
+        <section class="intro-box">
+            <p>
+                Alguna vez, viendo hacia el cielo estrellado, ¿te has preguntado si todo lo que nos rodea es real o si somos personajes dentro de una computadora gigante? Aunque suena a una idea sacada por completo de una película de ciencia ficción o de un videojuego, la realidad es que esta pregunta ha vuelto locos a filósofos y científicos por siglos.<br><br>
+                Hoy en día, gracias a disciplinas como las <strong>matemáticas</strong>, la <strong>biología</strong> y, sobre todo, la <strong>física cuántica</strong>, no nos quedamos solo con la duda. La ciencia ha comenzado a encontrar pistas sospechosamente perfectas que nos hacen dudar de la naturaleza de la realidad. ¿El universo está hecho de materia continua, o simplemente somos un montón de código binario bien optimizado? Para entenderlo, tenemos que explorar los tres grandes pilares de la física moderna. 🧐✨
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>1. El Zoom In definitivo: La Longitud de Planck</h2>
+            <p>Cuando juegas un videojuego moderno de última generación, los paisajes se ven fluidos, las curvas son perfectas y los movimientos son suaves. Sin embargo, si te acercas por completo a la pantalla, esa hermosa ilusión se rompe y descubres que todo está construido por pequeños cuadraditos rígidos e indivisibles: los píxeles.</p>
+            <p>En nuestro universo pasa algo idéntico. En la vida cotidiana, el espacio se siente continuo; puedes mover tu mano de un lado a otro en un deslizamiento suave. Pero si hiciéramos un <em>zoom</em> ultra potente al tejido del espacio-tiempo, llegaríamos a un límite físico absoluto conocido como la <strong>Longitud de Planck</strong>.</p>
+            <p>Las leyes de la física actual (combinando la relatividad de Einstein y la mecánica cuántica) nos dicen que es imposible medir o interactuar con algo más pequeño que esto. Si intentáramos concentrar energía para observar algo menor a la longitud de Planck, el espacio-tiempo se volvería tan inestable que colapsaría en un mini agujero negro. El universo, por lo tanto, parece tener una <strong>resolución máxima</strong>. La longitud de Planck es el píxel fundamental de nuestra realidad. 👾</p>
+            <a href=https://www.canva.com/design/DAHKNtX7u-Q/XsDpz45-MEH16YQxpwA5ew/view?embed target="_blank" class="video-btn">Ver explicación de la teoría de cuerdas 📑</a>
+        </section>
+
+        <section class="card">
+            <h2>2. El procesador del cosmos y la optimización de datos</h2>
+            <p>Otro gran misterio de la física es por qué existe un límite de velocidad tan estricto en la naturaleza: nada con masa puede viajar más rápido que la luz. Si aplicamos la hipótesis de la simulación, la respuesta es bastante lógica: es la <strong>velocidad máxima de procesamiento de la información</strong> del universo para evitar el famoso <em>lag</em>.</p>
+            
+            <p>A nivel subatómico, el universo usa un truco idéntico al <strong>Frustum Culling</strong> de los videojuegos, donde la computadora solo dibuja lo que entra en la pantalla de tu personaje. En el mundo microscópico, los electrones y fotones no son canicas sólidas; antes de ser medidos, existen en un estado de <strong>superposición cuántica</strong>, comportándose como una "nube de probabilidades" o <strong>Función de Onda</strong>.</p>
+            
+            <p>Demostrado en el famoso <strong>Experimento de la Doble Rendija</strong>, si no los miras actúan como olas, pero en el instante en que pones un detector... ¡pum! La función de onda colapsa y la partícula se vuelve un punto sólido. A esto los físicos le llaman el <strong>Efecto Observador</strong>. ¡El universo parece que solo renderiza la materia cuando la estamos mirando para ahorrar potencia de procesamiento! 🎮🧠</p>
+            <a href= https://drive.google.com/file/d/1aNJMTWUs-ENiEMCiEj-t3kWVMhqJQAHU/view?usp =drivesdk target="_blank" class="video-btn">Ver el video aquí 📹 </a>
+        </section>
+
+        <section class="card">
+            <h2>3. ¿Somos una proyección? El Principio Holográfico</h2>
+            <p>¿Y si te dijera que tú, yo, las estrellas y todo lo que puedes tocar en 3D somos en realidad una proyección? De esto se trata el <strong>Principio Holográfico</strong>. Todo empezó en los años 70 y 90, cuando mentes brillantes de la física como Stephen Hawking y Leonard Susskind descubrieron que la información de los objetos que caen en un agujero negro se queda grabada para siempre en su superficie exterior, que es plana (2D).</p>
+            
+            <blockquote>
+                <strong>La analogía de la tarjeta de crédito:</strong> Piensa en el holograma brillante que viene en las tarjetas. La tarjeta es completamente plana (2D), pero cuando le da la luz, ves una imagen con volumen y profundidad (3D). ¡El universo podría funcionar exactamente igual!
+            </blockquote>
+            
+            <p>Fue el físico argentino <strong>Juan Martín Maldacena</strong> quien demostró matemáticamente que lo que experimentamos en tres dimensiones podría ser solo la proyección de datos codificados en una frontera bidimensional muy lejana. En computación, los mundos 3D se guardan en chips de memoria planos. Si la estructura de la realidad está pixelada y guardada en una superficie 2D, significa que el universo se comporta exactamente igual que el software de una computadora gigante. 🎞️✨</p>
+            <a href=https://drive.google.com/file/d/1UdSQEDQsku4NglRaDNon6j-fDAO6CoyG/view?usp=drivesdk target="_blank" class="video-btn">Escucha el podcast sobre el tema 🎧</a>
+
+        </section>
+
+    
+        
+        <section class="card">
+            <h2>Conclusión: ¿Programados o reales?</h2>
+            <p>A la fecha, la ciencia no puede asegurar al 100% que vivamos dentro de una simulación creada por una civilización hiperavanzada. Sin embargo, las coincidencias son fascinantes. El universo no es infinito hacia lo pequeño (tiene píxeles), no es infinito en rapidez (tiene límite de procesador) y ahorra energía no materializando las cosas hasta que interactuamos con ellas.</p>
+            <p>Ya sea que se trate de leyes físicas naturales que aún no terminamos de comprender del todo, o de que realmente somos el proyecto escolar de un programador alienígena, la estructura de la realidad es mucho más asombrosa de lo que percibimos a simple vista. La próxima vez que veas un error de texturas en tu videojuego favorito, no te molestes... ¡tal vez nuestro propio universo también esté esperando su próxima actualización!</p>
+        </section>
+
+       
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecciones de Física Estelar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="space-bg"><div class="stars"></div></div>
+
+    <section class="info-section">
+        <h1>Manual de Operaciones Físicas</h1>
+        
+        <div class="card">
+            <h2>1. Leyes de Newton</h2>
+            <p>Las leyes de Newton describen la relación entre las fuerzas que actúan sobre un cuerpo y el movimiento de este cuerpo debido a dichas fuerzas.</p>
+            <ul>
+                <li><strong>Inercia:</strong> Todo cuerpo permanece en reposo a menos que una fuerza actúe sobre él.</li>
+                <li><strong>Fuerza (F=ma):</strong> La aceleración es proporcional a la fuerza aplicada.</li>
+                <li><strong>Acción y Reacción:</strong> A cada acción corresponde una reacción igual y opuesta.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>2. Termodinámica</h2>
+            <p>Estudia la transferencia de energía y calor. La <strong>Entropía</strong> es la medida del desorden en un sistema, central en la Segunda Ley.</p>
+        </div>
+    </section>
+
+    <section class="game-section">
+        <div id="quiz-container">
+            <div id="quiz-screen">
+                <div class="system-header">
+                    <span id="q-count">INICIALIZANDO...</span>
+                    <span>STATUS: ONLINE</span>
+                </div>
+                <div class="progress-container">
+                    <div id="progress-bar"></div>
+                </div>
+                <div id="question-text" class="question-text">Cargando protocolo de evaluación...</div>
+                <div id="options-container" class="options-grid"></div>
+            </div>
+
+            <div id="results-screen" class="results-screen" style="display:none;">
+                <h1 class="orbitron">MISIÓN CUMPLIDA</h1>
+                <div class="score-num"><span id="final-score">0</span>/20</div>
+                <p id="rank-text"></p>
+                <button id="restart-btn" onclick="location.reload()">REINICIAR SISTEMA</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+  <div class="floating-chat-container">
+    <button class="chat-trigger-btn" id="chat-toggle">
+        💬 ¿Necesitas ayuda?
+    </button>
+
+    <div class="chat-window-box" id="chat-window" style="display: none;">
+        <div class="chat-header">Oráculo Cósmico v1.0</div>
+        <div class="chat-box" id="chat-box">
+            <div class="msg ai-msg"><strong>[Oráculo]:</strong> ¡Hola! Sistema en línea. Pregúntame sobre píxeles, lag, cuerdas o el experimento cuántico... 🌐</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="user-input" placeholder="Pregunta algo..." autocomplete="off">
+            <button id="send-btn">🚀</button>
+        </div>
+    </div>
+</div>
+
+  <section class="card team-card">
+    <h2>👥 Presentación del Equipo de Investigación</h2>
+    <p class="team-intro">Para lograr un enfoque científico interdisciplinario, nuestro equipo dividió de manera equitativa los roles de desarrollo y divulgación:</p>
+    
+    <div class="team-detailed-grid">
+        <div class="team-member-box">
+            <h3>Sofía Gutiérrez</h3>
+            <p class="role-tag">Redacción y Lógica</p>
+            <ul>
+                <li>Redacción completa de los artículos científicos.</li>
+                <li>Dirección y locución del Podcast de divulgación.</li>
+                <li>Entrenamiento lógico y desarrollo de la mini IA.</li>
+            </ul>
+        </div>
+
+        <div class="team-member-box">
+            <h3>Leonardo Alejandre</h3>
+            <p class="role-tag">Desarrollo y Estructura</p>
+            <ul>
+                <li>Encargado de la estructura técnica del sitio web.</li>
+                <li>Programación del videojuego temático de física.</li>
+                <li>Diseño de la coherencia visual de la interfaz.</li>
+            </ul>
+        </div>
+
+        <div class="team-member-box">
+            <h3>María José Ramírez</h3>
+            <p class="role-tag">Diseño y Contenido Audiovisual</p>
+            <ul>
+                <li>Diseño gráfico general y paleta de colores.</li>
+                <li>Creación de infografías científicas detalladas.</li>
+                <li>Producción y edición de los videos del equipo.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
